@@ -2,9 +2,11 @@
 
 一个 GBF 团战马票走势图生成器
 
-## 原理
+## How to use
 
 chrome 文件夹中是一个扩展，在马票界面打开扩展面板点击 "Get" 会收集当前的数据。
+
+目前发送位置是我的VPS上，你可以修改 chrome/popup.js 中的 `xhr.open` 中的第二个参数来修改。
 
 python 文件夹中是图片生成器，使用 `python ./httpserver.py` 来运行它。
 
@@ -12,7 +14,18 @@ python 文件夹中是图片生成器，使用 `python ./httpserver.py` 来运�
 
 目前程序中预设了11个时间点，分别在 0800, 1000, 1200, 1400, 1600, 1720, 1740, 1600, 1800, 2000, 2200, 2400, 请在这些时点附近生成图片以避免太大的误差。
 
-## 依赖
+在 Python 目录下新建 `twitter.json`, 将你的 Twitter App 信息填入，在 [Twitter Apps](https://apps.twitter.com) 上可以获取到。
+
+```JSON
+{
+    "consumerKey": "",
+    "consumerSecret": "",
+    "accessToken": "",
+    "accessTokenSecret": ""
+}
+```
+
+## Dependency
 
 Python 脚本需要以下依赖：
 
@@ -23,7 +36,9 @@ Python 脚本需要以下依赖：
 
 ## To Do
 
-- 发推功能
-- 定时自动生成
-- 每日数据的保存
-- 其他优化
+- [x] 发推功能
+- [ ] 定时自动生成
+- [ ] 每日数据的保存
+- [ ] 其他优化
+
+Pull Request is welcomed.
