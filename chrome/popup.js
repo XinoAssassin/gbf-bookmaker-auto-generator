@@ -37,7 +37,7 @@ function getData() {
 
 function sendData() {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://127.0.0.1:8080", true);
+    xhr.open("POST", "http://xinoassassin.me:8080", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(data));
     xhr.onreadystatechange == function () {
