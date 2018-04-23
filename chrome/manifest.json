@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "GBF BookMaker",
+    "description": "Guild's bookmaker data transfer to outside",
+    "version": "0.0.1",
+    "browser_action": {
+        "default_icon": {
+            "128": "B2-128.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "popup"
+    },
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "getData.js"
+            ],
+            "matches": [
+                "*://game.granbluefantasy.jp/*",
+                "*://gbf.game.mbga.jp/*"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "permissions": [
+        "clipboardRead",
+        "clipboardWrite",
+        "activeTab",
+        "*://game.granbluefantasy.jp/*",
+        "*://gbf.game.mbga.jp/*",
+        "*://127.0.0.1/",
+        "*://xinoassassin.me/*"
+    ]
+}
