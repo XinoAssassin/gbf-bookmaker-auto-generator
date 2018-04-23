@@ -44,7 +44,7 @@ def dealWithData(data):
 		xtemp.append(x[i])
 		xttemp.append(xt[i])
 
-	plt.figure(figsize=(12, 6), dpi=72)
+	plt.figure(figsize=(12, 6), dpi=200)
 	plt.xlabel("Time")
 	plt.ylabel("percent")
 	plt.xlim(8, 24)
@@ -57,8 +57,7 @@ def dealWithData(data):
 	plt.plot(xtemp, p_e, color="navy", label="east")
 	plt.grid(True)
 	plt.legend(loc="best")
-	filename = str(t) + ".png"
-	plt.savefig(filename+".png")
-	plt.show()
-	twitter.sendImage(filename+".png", title)
+	filename = str(time.strftime("%Y-%m-%d", time.localtime())) + str(xt[t]) + ".png"
+	plt.savefig(filename)
+	twitter.sendImage(title, filename)
 	
