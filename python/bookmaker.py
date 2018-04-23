@@ -57,7 +57,8 @@ def dealWithData(data):
 	plt.plot(xtemp, p_e, color="navy", label="east")
 	plt.grid(True)
 	plt.legend(loc="best")
-	plt.savefig(t+".png")
+	filename = str(t) + ".png"
+	plt.savefig(filename+".png")
 	plt.show()
-	twitter.sendImage(t+".png", title)
+	twitter.sendImage(filename+".png", title)
 	
