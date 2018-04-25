@@ -2,8 +2,10 @@
 #!/usr/bin/python
 
 import sys
+import platform
 import matplotlib
-matplotlib.use('Agg')
+if platform.system() == "Linux":
+	matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import datetime
@@ -22,9 +24,9 @@ p_w = []
 p_e = []
 p_s = []
 
-x = [8, 10, 12, 14, 16, 17.3333, 17.6667, 18, 20, 22, 24]
+x = [8, 10, 12, 14, 16, 17.25, 17.5, 17.75, 18, 20, 22, 24]
 xt = ["08:00", "10:00", "12:00", "14:00", "16:00",
-      "17:20", "17:40", "18:00", "20:00", "22:00", "24:00"]
+      "17:15", "17:30", "17:45", "18:00", "20:00", "22:00", "24:00"]
 
 def dealWithData(data):
 	data = json.loads(data)
@@ -59,7 +61,7 @@ def dealWithData(data):
 	plt.plot(xtemp, p_e, color="navy", label="east")
 	plt.grid(True)
 	plt.legend(loc="best")
-	filename = str(time.strftime("%Y-%m-%d", time.localtime())) + str(xt[t]) + ".png"
+	filename = str(time.strftime("%Y-%m-%d", time.localtime())) +"_"+ str(xt[t]) + ".png"
 	plt.savefig(filename)
 	twitter.sendImage(title, filename)
 	

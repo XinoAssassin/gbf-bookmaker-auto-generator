@@ -4,9 +4,6 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib
 import logging
 import sys
-import matplotlib
-import matplotlib.pyplot as plt
-import numpy as np
 import json
 import bookmaker
 
@@ -15,6 +12,7 @@ class S(BaseHTTPRequestHandler):
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
+        #self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
 
     def do_GET(self):

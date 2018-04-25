@@ -1,6 +1,6 @@
 /* eslint-disable */
 document.getElementById("getButton").addEventListener("click", getData);
-document.getElementById("sendButton").addEventListener("click", sendData)
+document.getElementById("sendButton").addEventListener("click", sendData);
 
 var data = {
     "north": 0,
