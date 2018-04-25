@@ -2,6 +2,7 @@
 #!/usr/bin/python
 
 import sys
+import os
 import platform
 import matplotlib
 if platform.system() == "Linux":
@@ -55,13 +56,13 @@ def dealWithData(data):
 	title = str(time.strftime("%Y-%m-%d", time.localtime())) + " " +str(xt[t])
 	plt.title(title)
 	plt.xticks(xtemp, xttemp, rotation=50)
-	plt.plot(xtemp, p_n, color="green", label="north")
-	plt.plot(xtemp, p_s, color="darkred", label="south")
-	plt.plot(xtemp, p_w, color="gray", label="west")
-	plt.plot(xtemp, p_e, color="navy", label="east")
+	plt.plot(xtemp, p_n, color="green", marker=".", label="north")
+	plt.plot(xtemp, p_s, color="darkred", marker=".", label="south")
+	plt.plot(xtemp, p_w, color="gray", marker=".", label="west")
+	plt.plot(xtemp, p_e, color="navy", marker=".", label="east")
 	plt.grid(True)
 	plt.legend(loc="best")
 	filename = str(time.strftime("%Y-%m-%d", time.localtime())) +"_"+ str(xt[t]) + ".png"
 	plt.savefig(filename)
-	twitter.sendImage(title, filename)
-	
+	if os.path.isfile("twitter.json"):
+		twitter.sendImage(title, filename)
