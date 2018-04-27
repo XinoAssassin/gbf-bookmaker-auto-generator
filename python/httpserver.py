@@ -1,26 +1,19 @@
 # -*- coding:utf-8 -*-
 #!/usr/bin/python
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import SimpleHTTPRequestHandler, HTTPServer
 import urllib
 import logging
 import sys
 import json
 import bookmaker
 
-class S(BaseHTTPRequestHandler):
+class S(SimpleHTTPRequestHandler):
 
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         #self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
-
-    def do_GET(self):
-        logging.info("GET request,\nPath: %s\nHeaders:\n%s\n",
-                     str(self.path), str(self.headers))
-        self._set_response()
-        self.wfile.write("GET request for {}".format(
-            self.path).encode("utf-8"))
 
     def do_POST(self):
         # <--- Gets the size of data

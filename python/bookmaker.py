@@ -14,7 +14,6 @@ import time
 import json
 import twitter
 
-
 north = []
 west = []
 east = []
@@ -48,18 +47,17 @@ def dealWithData(data):
 	for i in range(t + 1):
 		xtemp.append(x[i])
 		xttemp.append(xt[i])
-
 	plt.figure(figsize=(12, 6), dpi=200)
 	plt.xlabel("Time")
 	plt.ylabel("percent")
 	plt.xlim(8, 24)
 	title = str(time.strftime("%Y-%m-%d", time.localtime())) + " " +str(xt[t])
 	plt.title(title)
-	plt.xticks(xtemp, xttemp, rotation=50)
-	plt.plot(xtemp, p_n, color="green", marker=".", label="north")
-	plt.plot(xtemp, p_s, color="darkred", marker=".", label="south")
-	plt.plot(xtemp, p_w, color="gray", marker=".", label="west")
-	plt.plot(xtemp, p_e, color="navy", marker=".", label="east")
+	plt.xticks(xtemp, xttemp, rotation=65)
+	plt.plot(xtemp, p_n, color="green", marker=".", label="N")
+	plt.plot(xtemp, p_s, color="darkred", marker=".", label="S")
+	plt.plot(xtemp, p_w, color="gray", marker=".", label="W")
+	plt.plot(xtemp, p_e, color="navy", marker=".", label="E")
 	plt.grid(True)
 	plt.legend(loc="best")
 	filename = str(time.strftime("%Y-%m-%d", time.localtime())) +"_"+ str(xt[t]) + ".png"

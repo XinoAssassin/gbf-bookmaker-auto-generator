@@ -26,15 +26,17 @@
                 "south": 0
             };
 
-            data.north = document.getElementById("north").innerText;
-            data.west = document.getElementById("west").innerText;
-            data.east = document.getElementById("east").innerText;
-            data.south = document.getElementById("south").innerText;
+            data.north = Number(document.getElementById("north").value);
+            data.west = Number(document.getElementById("west").value);
+            data.east = Number(document.getElementById("east").value);
+            data.south = Number(document.getElementById("south").value);
+            
+            console.log(data);
+
 
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "http://127.0.0.1:10086", true);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader("Origin","http://127.0.0.1")
             xhr.send(JSON.stringify(data));
             xhr.onreadystatechange == function () {
                 if (this.onreadystatechange == 200) {
