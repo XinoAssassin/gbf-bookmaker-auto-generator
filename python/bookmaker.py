@@ -60,7 +60,7 @@ def dealWithData(data):
 	plt.plot(xtemp, p_e, color="navy", marker=".", label="E")
 	plt.grid(True)
 	plt.legend(loc="best")
-	filename = str(time.strftime("%Y-%m-%d", time.localtime())) +"_"+ str(xt[t]) + ".png"
+	filename = str(time.strftime("%Y-%m-%d", time.localtime())) +"_"+ str(xt[t]).replace(":", "-") + ".png"
 	plt.savefig(filename)
 	if os.path.isfile("twitter.json"):
 		twitter.sendImage(title, filename)

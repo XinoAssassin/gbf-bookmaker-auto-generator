@@ -25,8 +25,19 @@ chrome.runtime.onMessage.addListener(
         if (request.msg == "getData")
         {
             getData();
+            getBetData();
             sendResponse(data);
         }
         return;
     }
 )
+
+function getBetData(){
+    var a = document.getElementsByClassName("num");
+    var b = "";
+    for (let i = 4; i < a.length; i++) 
+    {
+        b = b + "\n" + a[i].title;
+    }
+    console.log(b);
+}
